@@ -1,0 +1,40 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*~
+
+# Environments
+.venv
+env/
+venv/
+ENV/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
