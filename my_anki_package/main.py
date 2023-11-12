@@ -1,10 +1,24 @@
 from . import genanki_helpers
 from .mandarin_assistant import MandarinAssistant
+import argparse
 
 def main():
 
+    # Parse arguments
+    parser = argparse.ArgumentParser(description='Generate Anki flashcards using OpenAI')
+
+    # Get the provided text file
+    parser.add_argument('text_file', type=str, help='The text file to convert to flashcards')
+
+    # Parse arguments
+    args = parser.parse_args()
+
+    # Get the text from the file
+    with open(args.text_file, 'r') as file:
+        text = file.read()
+
     mandarin_assistant = MandarinAssistant()
-    mandarin_assistant.convert_to_flashcards("小丽：手机、电脑、地图，一个也不能少。 小刚：这些我昨天下午就准备好了。 小丽：再多带几件衣服吧。 小刚：我们是去旅游，不是搬家，还是少带一些吧")
+    mandarin_assistant.convert_to_flashcards(text)
 
     # Create a new deck with new mandarin flashcards
     deck = genanki_helpers.create_deck("New mandarin flashcards")
