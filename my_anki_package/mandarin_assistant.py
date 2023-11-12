@@ -55,3 +55,6 @@ class MandarinAssistant:
 
         # Print JSON object with pretty formatting
         print(json.dumps(json.loads(json_string), indent=4))
+
+        # Return JSON object containing flashcards
+        return json.loads(json_string)

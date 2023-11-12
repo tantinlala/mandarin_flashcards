@@ -18,7 +18,7 @@ def main():
         text = file.read()
 
     mandarin_assistant = MandarinAssistant()
-    mandarin_assistant.convert_to_flashcards(text)
+    flashcards_json = mandarin_assistant.convert_to_flashcards(text)
 
     # Create a new deck with new mandarin flashcards
     deck = genanki_helpers.create_deck("New mandarin flashcards")
@@ -26,10 +26,12 @@ def main():
     model = genanki_helpers.create_model()
 
     # Create a new note with genanki_helpers
-    note = genanki_helpers.create_note(model, ["Front of card", "Back of card"])
-
-    # Add the note to the deck
-    deck.add_note(note)
+    # Loop through all flashcards in json and create a note for each one
+    for flashcard in flashcards_json["flashcards"]:
+        note = genanki_helpers.create_note(model, [flashcard["mandarin"], flashcard["english"] + " (" + flashcard["pinyin"] + ")"])
+        genanki_helpers.add_note_to_deck(deck, note)
+        note = genanki_helpers.create_note(model, [flashcard["english"], flashcard["mandarin"] + " (" + flashcard["pinyin"] + ")"])
+        genanki_helpers.add_note_to_deck(deck, note)
 
     # Generate the .apkg file
     genanki_helpers.generate_anki_file(deck, "new_mandarin_flashcards.apkg")
