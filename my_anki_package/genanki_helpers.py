@@ -1,19 +1,19 @@
 import genanki
 
 def create_deck(deck_name):
-    deck_id = 2059400110#uuid.uuid4().int & (1<<64)-1
+    deck_id = 2059400110 #uuid.uuid4().int & (1<<64)-1
     return genanki.Deck(deck_id, deck_name)
 
 def create_model():
-    model_id = 1607392319#uuid.uuid4().int & (1<<64)-1
+    model_id = 1607392319 #uuid.uuid4().int & (1<<64)-1
 
     my_model = genanki.Model(model_id, 'Simple Model', fields=[
-    {'name': 'Question'},
-    {'name': 'Answer'}], templates= [
+    {'name': 'Vocabulary'},
+    {'name': 'Translation'}], templates= [
     {
-      'name': 'Card 1',
-      'qfmt': '{{Question}}',
-      'afmt': '{{FrontSide}}<hr id="answer">{{Answer}}',
+      'name': 'Mandarin Flashcard',
+      'qfmt': '{{Vocabulary}}',
+      'afmt': '{{Translation}}<hr id="answer">{{Translation}}',
     }])
     return my_model
 
