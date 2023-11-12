@@ -38,3 +38,7 @@ ENV/
 
 # Environment variables
 .env
+
+# Input and output files
+*.txt
+*.apkg
