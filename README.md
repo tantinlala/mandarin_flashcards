@@ -1,39 +1,26 @@
-# my_anki_package
-
-This is a Python package that simplifies the process of creating Anki flashcards using the genanki library.
+# mandarin_flashcards
+This is a Python package that simplifies the process of creating Mandarin Anki flashcards using the genanki library and OpenAI.
 
 ## Installation
-
 You can install this package using pip:
-
 ```bash
-pip install my_anki_package
-```
+pip install mandarin_flashcards
 
 ## Usage
 
-First, import the package:
+This package provides a console script that you can use to create Mandarin Anki flashcards. Here's how to use it:
 
-```python
-import my_anki_package
+1. First, install the package using pip
+
+2. Then, you can run the `create_mandarin_flashcards` script from the command line. You'll need to provide the path to a text file that contains the Mandarin passage from which you want to create flash cards.
+
+```bash
+create_mandarin_flashcards mandarin_text.txt
 ```
 
-Then, you can use the functions and classes provided by the package to generate Anki flashcards.
+This will create an Anki package file (`.apkg`) in the current directory.
 
-Here is a basic example:
-
-```python
-from my_anki_package import genanki_helpers
-
-# Create a new deck
-deck = genanki_helpers.create_deck("My Deck")
-
-# Add a card to the deck
-genanki_helpers.add_card(deck, "Front of card", "Back of card")
-
-# Save the deck to a file
-genanki_helpers.save_deck(deck, "my_deck.apkg")
-```
+3. You can import the `.apkg` file into Anki to add the flashcards to your collection.
 
 ## Contributing
 
